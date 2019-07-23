@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head> 
+<meta charset="utf-8">
+<title>제목</title> 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $(function(){
+        $('#nextButton').on('click', function() {
+            if($('#nNum').val() === '') {
+                alert('값을 입력해 주세요!');
+            }
+            if($('#nNum').val() > 0 || $('#nNum').val() >= 17){
+                alert('1~16사이값을 입력해 주세요.');
+            }
+        });
+    });
+    // 1 <= n <= 16
+    const n = 5;
+
+    //[9, 20 , 28, 18, 11]
+    const arr1 = [9, 20, 28, 18, 11];
+
+    //[30, 1 ,21, 17, 28]
+    const arr2 = [30, 1 ,21, 17, 28];
+
+    const fillZero = (a, b, c) => {
+        let str = (a | b).toString(2);
+        if(str.length !== c) {
+            while(str.length < c ) {
+                str = 0 + str;
+            }
+        }
+        return str.replace(/1/g, '#').replace(/0/g, ' ');
+    } 
+
+    let arr = [];
+
+    for(let i = 0; i < n; i ++) {
+        arr.push(fillZero(arr1[i], arr2[i], n));
+    } 
+    console.log(arr);
+</script>
+</head> 
+<body> 
+    <div class="inputNum">
+        <input id="nNum" type="text" size="2" maxlength="2">
+        <input id="nextButton" type="button" value="NEXT">
+    </div>
+    <div class="inputPw">
+
+    </div>
+    <input name="inputArr1" type="text" size="2" maxlength="2" value="1">
+    <input name="inputArr1" type="text" size="2" maxlength="2" value="2">
+    <input name="inputArr1" type="text" size="2" maxlength="2" value="3">
+    <input name="inputArr1" type="text" size="2" maxlength="2" value="4">
+    <input name="inputArr1" type="text" size="2" maxlength="2" value="5">
+</body> 
+</html>
